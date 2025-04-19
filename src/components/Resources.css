@@ -1,0 +1,57 @@
+/* Styles specific to the Resources component */
+
+/* Resource Section Styling */
+.resource-section {
+    margin-bottom: 3.5rem;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    scroll-margin-top: 70px; /* Offset for sticky navbar scrolling */
+    /* border: 1px solid var(--light-grey); */
+    /* Optional border */
+}
+
+.resource-section h2 {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block; /* Keep border under text */
+}
+
+/* Link Card Styling */
+.list-group {
+    box-shadow: none; /* Remove default shadow if we add custom */
+}
+
+.list-group-item-action {
+    border: 1px solid var(--light-grey);
+    border-radius: 8px !important; /* Override Bootstrap */
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem; 
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px var(--card-shadow);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.list-group-item-action:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px var(--card-shadow);
+    background-color: var(--card-bg) !important; /* Keep background white on hover */
+    border-color: var(--primary-color);
+}
+
+.list-group-item-action h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem; /* More space below title */
+    font-weight: 600;
+}
+
+.list-group-item-action p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.list-group-item-action p.small {
+    font-size: 0.85rem; /* Smaller font size for postcode */
+} 

@@ -1,0 +1,17 @@
+/* Styles for the Home component */
+
+.home-intro-section {
+  background-color: var(--card-bg);
+  border-left: 5px solid var(--accent-color);
+}
+
+.home-intro-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.home-intro-section p {
+  color: var(--text-color);
+  font-size: 1rem; /* Adjust size as needed */
+  line-height: 1.6;
+} 
