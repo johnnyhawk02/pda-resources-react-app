@@ -1,0 +1,82 @@
+:root {
+  /* Color Palette */
+  --primary-color: #3498db; /* Brighter Blue */
+  --accent-color: #f39c12; /* Warm Orange */
+  --background-color: #fdfdff; /* Very Light Grey/Off-white */
+  --text-color: #34495e; /* Dark Slate Blue */
+  --light-grey: #ecf0f1; /* Light Grey for borders/subtle backgrounds */
+  --card-bg: #ffffff; /* White for cards */
+  --card-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Define CSS variables for fonts */
+  --app-headline-font-family: "Poppins", sans-serif; /* Default Headline */
+  --app-body-font-family: "Roboto", sans-serif;     /* Default Body */
+
+  line-height: 1.6; /* Slightly more line spacing */
+  font-weight: 400;
+
+  color-scheme: light; /* Assuming light mode primarily */
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-color); 
+  text-decoration: none; /* Remove underline by default */
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent-color); 
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--app-body-font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Apply the headline font variable */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--app-headline-font-family);
+  color: var(--primary-color); /* Headlines use primary color */
+  font-weight: 600; /* Make headlines a bit bolder */
+}
+
+/* Apply body font to common text elements */
+p, li, label, span, div /* Add other elements as needed */ {
+    font-family: var(--app-body-font-family);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+button {
+  border-radius: 20px; /* More rounded buttons */
+  border: 1px solid transparent;
+  padding: 0.6em 1.5em; /* Adjust padding */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: var(--app-body-font-family);
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* Remove default light/dark mode overrides if we're defining our own */
+/* @media (prefers-color-scheme: light) { ... } */
