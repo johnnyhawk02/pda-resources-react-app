@@ -60,6 +60,21 @@ p, li, label, span, div /* Add other elements as needed */ {
     line-height: 1.6;
 }
 
+/* Consistent Page Titles (Main H2 on each page) */
+.app-container > div > h2, /* Targets H2 in Contact, ECHP, DLA, BlueBadge */
+.app-container > section > h2, /* Targets H2 in Home */
+.pda-page > h2, /* Targets H2 in PDA */
+.articles-page > h2, /* Targets H2 in Articles */
+.resource-section > h2 /* Targets H2 in Resources sections */
+{
+    margin-top: 0; /* Remove extra top margin if container already has it */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block; /* Keep border tight */
+    max-width: 100%; /* Prevent overflow */
+}
+
 button {
   border-radius: 20px; /* More rounded buttons */
   border: 1px solid transparent;

@@ -1,0 +1,49 @@
+{
+  "articles": [
+    {
+      "title": "Pathological Demand Avoidance (PDA) in Kids – Child Mind Institute",
+      "synopsis": "This article explores PDA as a behavioral profile often associated with autism, characterized by extreme avoidance of everyday demands due to anxiety and a need for control. It emphasizes understanding these behaviors and offers supportive strategies for parents and caregivers.",
+      "link": "https://childmind.org/article/pathological-demand-avoidance-in-kids/"
+    },
+    {
+      "title": "Identifying Features of 'Pathological Demand Avoidance' – European Child & Adolescent Psychiatry",
+      "synopsis": "This study examines the characteristics of PDA, including obsessive resistance to everyday demands and socially manipulative behaviors. It discusses the complexities in diagnosing PDA and its relationship with autism and other developmental disorders.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/26224583/"
+    },
+    {
+      "title": "Helpful Approaches for Children – PDA Society",
+      "synopsis": "The PDA Society provides practical advice for parents and caregivers on managing PDA. The article suggests replacing firm boundaries and traditional reward systems with approaches based on negotiation, collaboration, and flexibility to create a supportive environment for children with PDA.",
+      "link": "https://www.pdasociety.org.uk/i-am-a-parent-carer/resources/helpful-approaches-for-children/"
+    },
+    {
+      "title": "Pathological Demand Avoidance in Children and Adolescents: A Systematic Review",
+      "synopsis": "This systematic review examines the methodological quality and findings from current research into PDA in children and adolescents. It highlights the lack of standardised diagnostic criteria and the need for further research to understand PDA's relationship with autism and other developmental disorders.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/34320869/"
+    },
+    {
+      "title": "Pathological Demand Avoidance (PDA) Explained – AutismBC",
+      "synopsis": "AutismBC offers an overview of PDA, describing it as an autistic profile marked by an extreme need for control and avoidance of demands. The article discusses the challenges in recognizing PDA and emphasizes the importance of individualized support strategies that address the underlying anxiety driving the behavior.",
+      "link": "https://www.autismbc.ca/tag/pda/"
+    },
+    {
+      "title": "Pathological Demand Avoidance: Current State of Research and Critical Discussion",
+      "synopsis": "This article reviews the current state of research on PDA, discussing its controversial status as an independent diagnostic entity. It emphasises the need to consider PDA as a behavioural profile associated with various disorders and the importance of individualised treatment approaches.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/36892327/"
+    },
+    {
+      "title": "PDA - What's in a Name? Dimensions of Difficulty in Children Reported to Have an Autism Spectrum Diagnosis and Features of Extreme/'Pathological' Demand Avoidance",
+      "synopsis": "This study explores the behavioural traits of children with autism spectrum disorder who also exhibit features of PDA. It discusses the challenges in classifying PDA and the importance of understanding underlying traits like cognitive rigidity and intolerance of uncertainty.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/32677136/"
+    },
+    {
+      "title": "Intolerance of Uncertainty and Anxiety as Explanatory Frameworks for Extreme Demand Avoidance in Children and Adolescents",
+      "synopsis": "This research investigates the roles of intolerance of uncertainty and anxiety in children exhibiting extreme demand avoidance behaviours. The findings suggest that these factors may contribute to the behaviours seen in PDA, offering potential avenues for intervention.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/32307839/"
+    },
+    {
+      "title": "Extreme ('Pathological') Demand Avoidance in Autism: A General Population Study in the Faroe Islands",
+      "synopsis": "This population-based study examines the prevalence of PDA traits among individuals with autism in the Faroe Islands. It provides insights into the occurrence and persistence of PDA behaviours from childhood into adolescence and early adulthood.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/25398390/"
+    }
+  ]
+} 

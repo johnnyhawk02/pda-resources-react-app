@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Routes, Route, Link, NavLink } from 'react-router-dom'
 import linksData from './links.json'
 import FontSwitcher from './components/FontSwitcher'
@@ -8,6 +8,8 @@ import Contact from './components/Contact'
 import Ehcp from './components/Ehcp'
 import Dla from './components/Dla'
 import BlueBadge from './components/BlueBadge'
+import Articles from './components/Articles'
+import PDA from './components/PDA'
 import './App.css'
 
 // Define default fonts
@@ -21,6 +23,19 @@ function App() {
   // Add state for selected fonts
   const [currentHeadlineFont, setCurrentHeadlineFont] = useState(defaultHeadlineFont);
   const [currentBodyFont, setCurrentBodyFont] = useState(defaultBodyFont);
+
+  // Refs for navbar collapse
+  const navTogglerRef = useRef(null);
+  const collapseNavbarRef = useRef(null);
+
+  // Function to close navbar on mobile after click
+  const handleNavClick = () => {
+    // Check if the navbar collapse element exists and is currently shown (visible)
+    if (collapseNavbarRef.current && collapseNavbarRef.current.classList.contains('show')) {
+      // Trigger a click on the toggler button to close the collapse menu
+      navTogglerRef.current.click();
+    }
+  };
 
   useEffect(() => {
     try {
@@ -55,15 +70,32 @@ function App() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
           {/* Use Link for SPA navigation */}
-          <Link className="navbar-brand" to="/">PDA Resources</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <Link className="navbar-brand" to="/" onClick={handleNavClick}>PDA Resources</Link>
+          <button 
+            ref={navTogglerRef}
+            className="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div 
+            ref={collapseNavbarRef}
+            className="collapse navbar-collapse" 
+            id="navbarNav"
+          >
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 {/* Use NavLink for active styling */}
-                <NavLink className="nav-link" to="/" end>Home</NavLink>
+                <NavLink className="nav-link" to="/" end onClick={handleNavClick}>Home</NavLink>
+              </li>
+              {/* Add What is PDA? Link */}
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/pda" onClick={handleNavClick}>What is PDA?</NavLink>
               </li>
               {/* Resources Dropdown */}
               <li className="nav-item dropdown">
@@ -88,6 +120,7 @@ function App() {
                         <Link 
                           className="dropdown-item" 
                           to={`/resources#${generateId(category)}`}
+                          onClick={handleNavClick}
                         >
                           {category}
                         </Link>
@@ -96,18 +129,30 @@ function App() {
                   )}
                 </ul>
               </li>
-              {/* Add new top-level links */}
+              {/* Add Articles Link */}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/ehcp">EHCP</NavLink>
+                <NavLink className="nav-link" to="/articles" onClick={handleNavClick}>Articles</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/dla">DLA</NavLink>
+              {/* Key Support Dropdown */}
+              <li className="nav-item dropdown">
+                <a 
+                  className="nav-link dropdown-toggle" 
+                  href="#" // No direct page link for the toggle itself
+                  role="button" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false"
+                >
+                  Key Support
+                </a>
+                <ul className="dropdown-menu">
+                  <li><NavLink className="dropdown-item" to="/ehcp" onClick={handleNavClick}>EHCP</NavLink></li>
+                  <li><NavLink className="dropdown-item" to="/dla" onClick={handleNavClick}>DLA</NavLink></li>
+                  <li><NavLink className="dropdown-item" to="/blue-badge" onClick={handleNavClick}>Blue Badge</NavLink></li>
+                </ul>
               </li>
+              {/* Removed individual links for EHCP, DLA, Blue Badge */}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/blue-badge">Blue Badge</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">Contact</NavLink>
+                <NavLink className="nav-link" to="/contact" onClick={handleNavClick}>Contact</NavLink>
               </li>
             </ul>
           </div>
@@ -118,6 +163,7 @@ function App() {
       <div className="container app-container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/pda" element={<PDA />} />
           <Route 
             path="/resources" 
             element={(
@@ -133,6 +179,7 @@ function App() {
           <Route path="/ehcp" element={<Ehcp />} />
           <Route path="/dla" element={<Dla />} />
           <Route path="/blue-badge" element={<BlueBadge />} />
+          <Route path="/articles" element={<Articles />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add a fallback route maybe? */}
           {/* <Route path="*" element={<NotFound />} /> */}

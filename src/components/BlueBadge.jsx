@@ -1,4 +1,5 @@
 import React from 'react';
+import './BlueBadge.css'; // Import the CSS file
 
 function BlueBadge() {
   return (

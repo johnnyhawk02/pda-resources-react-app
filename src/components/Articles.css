@@ -1,0 +1,35 @@
+/* Removed h2 style - Handled globally now */
+
+.articles-page .lead {
+    color: var(--text-color);
+}
+
+.article-card {
+    border: none; /* Remove default card border */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--card-shadow) !important; /* Enhance shadow on hover */
+}
+
+.article-card .card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.article-card .article-synopsis {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.article-card .card-footer {
+    padding-top: 0; /* Reduce space above button */
+}
+
+.article-link-btn {
+    /* Inherits button styles from index.css, can customize further if needed */
+    /* Example: font-size: 0.85rem; padding: 0.4em 1em; */
+} 

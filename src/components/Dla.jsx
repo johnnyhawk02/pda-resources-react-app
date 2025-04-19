@@ -1,4 +1,5 @@
 import React from 'react';
+import './Dla.css'; // Import the CSS file
 
 function Dla() {
   return (

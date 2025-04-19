@@ -11,13 +11,6 @@
     /* Optional border */
 }
 
-.resource-section h2 {
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.5rem;
-    display: inline-block; /* Keep border under text */
-}
-
 /* Link Card Styling */
 .list-group {
     box-shadow: none; /* Remove default shadow if we add custom */

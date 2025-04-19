@@ -1,0 +1,20 @@
+/* Styles for the PDA info page */
+
+.pda-page h1 {
+    margin-bottom: 1.5rem;
+}
+
+.pda-page p strong,
+.pda-page li strong {
+    color: var(--primary-color);
+}
+
+.pda-page section p:last-of-type {
+    margin-bottom: 0; /* Reduce margin after last paragraph in a section */
+}
+
+.pda-page section p + p a, /* Link following a reference paragraph */
+.pda-page section ul li a {
+    font-size: 0.9em;
+    margin-left: 0.5em;
+} 

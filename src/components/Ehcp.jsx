@@ -1,4 +1,5 @@
 import React from 'react';
+import './Ehcp.css'; // Import the CSS file
 
 function Ehcp() {
   return (
