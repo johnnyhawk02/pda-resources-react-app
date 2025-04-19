@@ -4,8 +4,8 @@ import FontSwitcher from './components/FontSwitcher'
 import './App.css'
 
 // Define default fonts
-const defaultHeadlineFont = '"Poppins", sans-serif'; // Example default headline
-const defaultBodyFont = '"Roboto", sans-serif';     // Example default body
+const defaultHeadlineFont = '"Nunito", sans-serif'; // Set default headline to Nunito
+const defaultBodyFont = '"Open Sans", sans-serif'; // Set default body to Open Sans
 
 function App() {
   const [resources, setResources] = useState({});
