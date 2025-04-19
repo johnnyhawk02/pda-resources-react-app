@@ -5,6 +5,9 @@ import FontSwitcher from './components/FontSwitcher'
 import Resources from './components/Resources'
 import Home from './components/Home'
 import Contact from './components/Contact'
+import Ehcp from './components/Ehcp'
+import Dla from './components/Dla'
+import BlueBadge from './components/BlueBadge'
 import './App.css'
 
 // Define default fonts
@@ -93,6 +96,16 @@ function App() {
                   )}
                 </ul>
               </li>
+              {/* Add new top-level links */}
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/ehcp">EHCP</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/dla">DLA</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/blue-badge">Blue Badge</NavLink>
+              </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/contact">Contact</NavLink>
               </li>
@@ -116,6 +129,10 @@ function App() {
               />
             )} 
           />
+          {/* Add routes for the new pages */}
+          <Route path="/ehcp" element={<Ehcp />} />
+          <Route path="/dla" element={<Dla />} />
+          <Route path="/blue-badge" element={<BlueBadge />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add a fallback route maybe? */}
           {/* <Route path="*" element={<NotFound />} /> */}
