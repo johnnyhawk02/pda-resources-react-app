@@ -29,7 +29,7 @@ function Dla() {
 
       {/* Added Section for PDA specific considerations */}
       <section className="mb-4 pda-dla-section">
-        <h3 className="text-primary">DLA Considerations for Children with PDA</h3>
+        <h3>DLA Considerations for Children with PDA</h3>
         <p>
           While DLA eligibility is based on the child's needs rather than their diagnosis, understanding how PDA traits manifest can be crucial when explaining these needs on the DLA form. The key is demonstrating how the child requires significantly more help or supervision than a non-disabled child of the <em>same age</em>.
         </p>
