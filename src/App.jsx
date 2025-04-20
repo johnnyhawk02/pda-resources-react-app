@@ -12,7 +12,6 @@ import Articles from './components/Articles'
 import PDA from './components/PDA'
 import TipsAndTricks from './components/TipsAndTricks'
 import ScrollToTop from './components/ScrollToTop'
-import logo from './assets/images/PDA logo.png'
 import './App.css'
 
 // Define default fonts
@@ -80,11 +79,11 @@ function App() {
     <>
       <ScrollToTop />
       {/* Navigation Bar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className="navbar navbar-custom navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
-          {/* Use Link for SPA navigation - now with logo */}
+          {/* Revert to text brand */}
           <Link className="navbar-brand" to="/" onClick={handleNavClick}>
-            <img src={logo} alt="PDA Resources Logo" className="navbar-logo" />
+            PDA Resources
           </Link>
           <button 
             ref={navTogglerRef}

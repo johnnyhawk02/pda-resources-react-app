@@ -177,50 +177,49 @@ button:hover, .btn:hover {
 
 /* --- Navbar specific (basic adjustments) --- */
 .navbar {
-  background-color: #111 !important; 
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  /* Removed explicit height/padding overrides */
-  min-height: auto !important; /* Keep min-height override */
+  background-color: #111 !important; /* Black background */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important; /* Subtle shadow */
+  position: fixed;
+  width: 100%;
+  z-index: 1030; /* Ensure it's above other content */
 }
 
-/* Remove styles added for fixed height experiment */
-/* .navbar > .container { ... } */
+/* Custom Navbar Height */
+.navbar-custom {
+  height: 65px; /* Set desired height */
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure container within custom navbar aligns */
+.navbar-custom .container {
+    display: flex;
+    align-items: center;
+    height: 100%; 
+}
 
 .navbar .navbar-brand,
 .navbar .navbar-brand:hover {
   font-weight: 600;
-  color: #fff !important; 
-  padding-top: 0.35rem; /* Reintroduce small padding */
-  padding-bottom: 0.35rem; /* Reintroduce small padding */
-  /* Removed display:flex, align-items, line-height: normal */
-}
-
-/* Style for the logo image within the brand link */
-.navbar-logo {
-  height: 32px; /* Try smaller height */
-  width: auto; 
-  vertical-align: middle; 
-  /* Removed max-height */
+  color: #fff !important; /* White text for visibility */
 }
 
 /* Base Nav Link Style (Desktop & Mobile) */
 .navbar .nav-link {
   font-weight: 500;
-  color: #fff !important; 
+  color: #aaa !important; /* Light grey text for menu items */
   background-color: transparent;
-  border-bottom: 2px solid transparent;
-  padding-top: 0.35rem; 
-  padding-bottom: 0.35rem; 
+  border-bottom: 2px solid transparent; 
   margin-bottom: -2px; 
-  transition: border-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   outline: none;
 }
 
-/* Hover & Focus (No Visual Change) */
+/* Hover & Focus (No Visual Change on color, keep transparent border) */
 .navbar .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar .nav-link:focus-visible {
-  color: #fff !important; /* Ensure white */
+  color: #ddd !important; /* Lighter grey on hover */
   border-bottom-color: transparent;
   background-color: transparent;
   outline: none;
@@ -228,26 +227,32 @@ button:hover, .btn:hover {
 }
 
 /* Active State (Desktop Underline) */
-.navbar-expand-lg .navbar-nav > .nav-link.active { /* More specific selector for desktop */
+.navbar-expand-lg .navbar-nav > .nav-link.active { 
   border-bottom-color: #fff; /* White underline */
+  color: #fff !important; /* White text for active/current page */
+}
+
+/* Mobile menu active link */
+.navbar-collapse .navbar-nav .nav-link.active {
+  color: #fff !important; /* White text for active mobile link */
 }
 
 /* Toggler */
 .navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important; /* Light border */
 }
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+   /* Use white stroke color for the hamburger icon */
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-/* --- Dropdown Menu Styles (Combined where possible) --- */
+/* --- Dropdown Menu Styles (Common) --- */
 .dropdown-menu {
-  /* Common styles first */
-  background-color: #111 !important; 
+  background-color: #111 !important; /* Black background */
   border-radius: 4px;
   margin-top: 0.25rem;
   padding: 0.5rem 0;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.3) !important; /* Keep shadow */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3) !important; 
 }
 
 /* Desktop Specific Dropdown Border */
@@ -258,13 +263,12 @@ button:hover, .btn:hover {
 /* Mobile Specific Dropdown Border/Padding */
 .navbar-collapse .dropdown-menu {
    border: none !important; /* Mobile has no border */
-   /* Reset padding from desktop base if necessary or adjust */
-   padding: 0.5rem 0 0.5rem 1rem; /* Re-add mobile indent padding? */
+   padding: 0.5rem 0 0.5rem 1rem; /* Keep mobile indent padding */
 }
 
 /* Dropdown Item Styles (Common) */
 .dropdown-item {
-  color: #fff !important; 
+  color: #aaa !important; /* Light grey text to match nav links */
   background-color: transparent !important;
   padding: 0.5rem 1rem;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
@@ -273,31 +277,32 @@ button:hover, .btn:hover {
 /* Dropdown Item Hover/Focus (Common) */
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #eee !important;
-  background-color: #222 !important; /* Darker background highlight */
+  color: #fff !important; /* White text on hover */
+  background-color: #222 !important; /* Darker black background */
 }
+
 
 /* --- Mobile Menu Specific Styles --- */
 .navbar-collapse {
-  background-color: #111; /* Match navbar */
-  padding: 1rem;
-  margin-top: 0.5rem;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: transparent !important; /* Match transparent navbar */
+  /* Remove padding/margin/shadow/border from collapse itself */
+  padding: 0;
+  margin-top: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Specific overrides for links within mobile collapse */
 .navbar-collapse .navbar-nav .nav-link {
-  color: #bbb !important; /* Pale grey for inactive links */
-  border-bottom: none !important; /* Ensure no border */
-  padding: 0.5rem 1rem; /* Keep padding */
-  margin-bottom: 0; /* Remove border offset */
-  background-color: transparent !important;
+  color: #aaa !important; /* Light grey for mobile menu items */
+  border-bottom: none !important; /* No border/underline in mobile */
+  padding: 0.75rem 1rem; /* Adjust padding for spacing */
+  margin-bottom: 0;
 }
 
 .navbar-collapse .navbar-nav .nav-link.active {
-  color: #fff !important; /* White for active item */
-  border-bottom-color: transparent !important; /* Ensure no active border */
+  color: #fff !important; /* White for active mobile link */
+  /* Maybe add background? background-color: rgba(0,0,0,0.05); */
 }
 
 /* --- Footer specific --- */
