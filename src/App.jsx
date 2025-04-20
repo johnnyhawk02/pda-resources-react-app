@@ -11,11 +11,12 @@ import BlueBadge from './components/BlueBadge'
 import Articles from './components/Articles'
 import PDA from './components/PDA'
 import TipsAndTricks from './components/TipsAndTricks'
+import ScrollToTop from './components/ScrollToTop'
 import './App.css'
 
 // Define default fonts
-const defaultHeadlineFont = '"Roboto", sans-serif'; // Set default headline to Roboto
-const defaultBodyFont = '"Open Sans", sans-serif'; // Set default body to Open Sans
+const defaultHeadlineFont = '"Merriweather", serif'; // Update default headline
+const defaultBodyFont = '"Open Sans", sans-serif'; // Default body is already Open Sans, ensure quotes
 
 function App() {
   const [resources, setResources] = useState({});
@@ -76,6 +77,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       {/* Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">

@@ -7,27 +7,31 @@
   text-align: left; /* Reset text align */
 }
 
+/* App container padding is now handled in index.css */
+/*
 .app-container {
-    padding-top: 80px; /* Increased padding for fixed navbar */
+    padding-top: 80px; 
     padding-bottom: 50px;
 }
+*/
 
-/* Navbar Styling */
+/* Navbar Styling - Removed as it's now handled globally in index.css */
+/*
 .navbar {
-    background: linear-gradient(to right, var(--primary-color), #5dade2); /* Subtle gradient */
+    background: linear-gradient(to right, var(--primary-color), #5dade2); 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .navbar-brand,
 .navbar .nav-link {
-    color: white !important; /* Override Bootstrap text color */
+    color: white !important; 
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .navbar .navbar-brand:hover,
 .navbar .nav-link:hover {
-    color: var(--accent-color) !important; /* Use accent color for hover */
+    color: var(--accent-color) !important; 
 }
 
 .navbar-toggler {
@@ -36,9 +40,9 @@
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
+*/
 
-
-/* Header Styling */
+/* Header Styling (If used elsewhere, keep, otherwise remove) */
 header .display-4 {
     color: var(--primary-color);
     font-weight: 700;
@@ -51,10 +55,11 @@ header .lead {
 
 /* Resource Section and List Item styles were moved to Resources.css */
 
-/* Footer Styling */
+/* Footer Styling - Handled in index.css */
+/*
 footer {
     border-top: 1px solid var(--light-grey); 
-    background-color: #f8f9fa; /* Use light grey or match background */
+    background-color: #f8f9fa; 
     padding: 1.5rem 0;
     color: var(--text-color);
 }
@@ -62,3 +67,4 @@ footer {
 footer p {
     margin-bottom: 0.25rem;
 }
+*/

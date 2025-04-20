@@ -16,9 +16,9 @@ html {
   --card-bg: #ffffff; /* Keeping White for cards */
   --card-shadow: rgba(52, 73, 94, 0.1); /* Subtle Shadow using text color base */
 
-  /* Modern Font Stack */
-  --app-headline-font-family: 'Inter', sans-serif;
-  --app-body-font-family: 'Inter', sans-serif;
+  /* Merriweather/Open Sans Font Stack */
+  --app-headline-font-family: 'Merriweather', serif;
+  --app-body-font-family: 'Open Sans', sans-serif;
 
   line-height: 1.65; /* Slightly more generous line height */
   font-weight: 400;
@@ -47,7 +47,7 @@ body {
 /* Main application container - seen in App.jsx */
 .app-container {
   flex-grow: 1; /* Ensures footer stays at bottom */
-  padding-top: 2rem; /* Spacing below navbar */
+  padding-top: 1rem; /* Reduced spacing below navbar */
   padding-bottom: 3rem; /* Spacing above footer */
 }
 
@@ -176,65 +176,111 @@ button:hover, .btn:hover {
 }
 
 /* --- Navbar specific (basic adjustments) --- */
-/* Assumes Bootstrap navbar classes */
 .navbar {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
-  background-color: rgba(255, 255, 255, 0.95) !important; /* Slightly transparent white */
-  backdrop-filter: blur(5px); /* Blur effect for modern feel */
-  -webkit-backdrop-filter: blur(5px);
+  background-color: #111 !important; /* Keep black background override */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.navbar-brand {
-  font-weight: 600;
-  color: var(--primary-color) !important;
-  transition: color 0.15s ease-in-out;
-}
-
-/* Add specific hover style for navbar brand */
+.navbar-brand,
 .navbar-brand:hover {
-  color: var(--primary-color) !important; /* Keep primary color on hover */
+  font-weight: 600;
+  color: #fff !important; /* White, no color change on hover */
 }
 
-/* Increase specificity */
+/* Base Nav Link Style (Desktop & Mobile) */
 .navbar .nav-link {
   font-weight: 500;
-  color: white !important; /* Change text color to white */
-  transition: border-color 0.15s ease-in-out; /* Only transition border */
-  border-bottom: 2px solid transparent; 
-  padding-bottom: 0.3rem; 
-  margin-bottom: -2px; 
-  background-color: transparent !important; /* Ensure no background */
-  outline: none !important; /* Remove focus outline */
+  color: #fff !important; /* White Text */
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.3rem;
+  margin-bottom: -2px;
+  transition: border-color 0.15s ease-in-out;
+  outline: none;
 }
 
-/* Remove hover styles entirely */
-.navbar .nav-link:hover {
-  color: white !important; /* Reiterate text color as white */
-  border-bottom-color: transparent; /* Ensure no underline on hover */
-  background-color: transparent !important; /* Ensure no background on hover */
-}
-
-/* Style focus states explicitly */
+/* Hover & Focus (No Visual Change) */
+.navbar .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar .nav-link:focus-visible {
-  color: white !important; /* Reiterate text color as white */
-  border-bottom-color: transparent; /* Ensure no underline on focus unless active */
-  background-color: transparent !important; /* Ensure no background on focus */
-  outline: none !important; /* Ensure no focus outline */
-  box-shadow: none; /* Ensure no focus box-shadow */
+  color: #fff !important; /* Ensure white */
+  border-bottom-color: transparent;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
 }
 
-/* Apply underline ONLY to the active link */
-.navbar .nav-link.active {
-  color: white !important; /* Ensure text color is white */
-  border-bottom-color: white !important; /* Underline with WHITE color */
-  background-color: transparent !important; /* Ensure no background */
+/* Active State (Desktop Underline) */
+.navbar-expand-lg .navbar-nav > .nav-link.active { /* More specific selector for desktop */
+  border-bottom-color: #fff; /* White underline */
 }
 
-/* Ensure active link keeps underline even on focus */
-.navbar .nav-link.active:focus,
-.navbar .nav-link.active:focus-visible {
-    border-bottom-color: white !important; /* Keep WHITE underline on focus */
+/* Toggler */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* --- Dropdown Menu Styles (Combined where possible) --- */
+.dropdown-menu {
+  /* Common styles first */
+  background-color: #111 !important; 
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  padding: 0.5rem 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3) !important; /* Keep shadow */
+}
+
+/* Desktop Specific Dropdown Border */
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+   border: 1px solid #333 !important; 
+}
+
+/* Mobile Specific Dropdown Border/Padding */
+.navbar-collapse .dropdown-menu {
+   border: none !important; /* Mobile has no border */
+   /* Reset padding from desktop base if necessary or adjust */
+   padding: 0.5rem 0 0.5rem 1rem; /* Re-add mobile indent padding? */
+}
+
+/* Dropdown Item Styles (Common) */
+.dropdown-item {
+  color: #fff !important; 
+  background-color: transparent !important;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+/* Dropdown Item Hover/Focus (Common) */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #eee !important;
+  background-color: #222 !important; /* Darker background highlight */
+}
+
+/* --- Mobile Menu Specific Styles --- */
+.navbar-collapse {
+  background-color: #111; /* Match navbar */
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Specific overrides for links within mobile collapse */
+.navbar-collapse .navbar-nav .nav-link {
+  color: #bbb !important; /* Pale grey for inactive links */
+  border-bottom: none !important; /* Ensure no border */
+  padding: 0.5rem 1rem; /* Keep padding */
+  margin-bottom: 0; /* Remove border offset */
+  background-color: transparent !important;
+}
+
+.navbar-collapse .navbar-nav .nav-link.active {
+  color: #fff !important; /* White for active item */
+  border-bottom-color: transparent !important; /* Ensure no active border */
 }
 
 /* --- Footer specific --- */
