@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Routes, Route, Link, NavLink } from 'react-router-dom'
+import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom'
 import linksData from './links.json'
 import FontSwitcher from './components/FontSwitcher'
 import Resources from './components/Resources'
@@ -28,6 +28,8 @@ function App() {
   // Refs for navbar collapse
   const navTogglerRef = useRef(null);
   const collapseNavbarRef = useRef(null);
+
+  const location = useLocation(); // Get current location
 
   // Function to close navbar on mobile after click
   const handleNavClick = () => {
@@ -64,6 +66,13 @@ function App() {
   };
 
   const categories = Object.keys(resources || {});
+
+  // Determine if a Key Support sub-page is active
+  const isKeySupportActive = [
+    '/ehcp',
+    '/dla',
+    '/blue-badge'
+  ].some(path => location.pathname.startsWith(path));
 
   return (
     <>
@@ -139,10 +148,10 @@ function App() {
                 <NavLink className="nav-link" to="/tips" onClick={handleNavClick}>Tips & Strategies</NavLink>
               </li>
               {/* Key Support Dropdown */}
-              <li className="nav-item dropdown">
+              <li className={`nav-item dropdown ${isKeySupportActive ? 'active-dropdown-parent' : ''}`}>
                 <a 
-                  className="nav-link dropdown-toggle" 
-                  href="#" // No direct page link for the toggle itself
+                  className={`nav-link dropdown-toggle ${isKeySupportActive ? 'active' : ''}`} 
+                  href="#"
                   role="button" 
                   data-bs-toggle="dropdown" 
                   aria-expanded="false"

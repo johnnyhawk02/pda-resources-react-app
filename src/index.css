@@ -99,7 +99,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent-color);
+  color: var(--primary-color); /* Keep primary color on hover */
   text-decoration: none; /* No underline on hover */
 }
 
@@ -187,16 +187,54 @@ button:hover, .btn:hover {
 .navbar-brand {
   font-weight: 600;
   color: var(--primary-color) !important;
-}
-
-.nav-link {
-  font-weight: 500;
-  color: var(--text-color) !important; 
   transition: color 0.15s ease-in-out;
 }
 
-.nav-link:hover, .nav-link.active {
-  color: var(--primary-color) !important; 
+/* Add specific hover style for navbar brand */
+.navbar-brand:hover {
+  color: var(--primary-color) !important; /* Keep primary color on hover */
+}
+
+/* Increase specificity */
+.navbar .nav-link {
+  font-weight: 500;
+  color: white !important; /* Change text color to white */
+  transition: border-color 0.15s ease-in-out; /* Only transition border */
+  border-bottom: 2px solid transparent; 
+  padding-bottom: 0.3rem; 
+  margin-bottom: -2px; 
+  background-color: transparent !important; /* Ensure no background */
+  outline: none !important; /* Remove focus outline */
+}
+
+/* Remove hover styles entirely */
+.navbar .nav-link:hover {
+  color: white !important; /* Reiterate text color as white */
+  border-bottom-color: transparent; /* Ensure no underline on hover */
+  background-color: transparent !important; /* Ensure no background on hover */
+}
+
+/* Style focus states explicitly */
+.navbar .nav-link:focus,
+.navbar .nav-link:focus-visible {
+  color: white !important; /* Reiterate text color as white */
+  border-bottom-color: transparent; /* Ensure no underline on focus unless active */
+  background-color: transparent !important; /* Ensure no background on focus */
+  outline: none !important; /* Ensure no focus outline */
+  box-shadow: none; /* Ensure no focus box-shadow */
+}
+
+/* Apply underline ONLY to the active link */
+.navbar .nav-link.active {
+  color: white !important; /* Ensure text color is white */
+  border-bottom-color: white !important; /* Underline with WHITE color */
+  background-color: transparent !important; /* Ensure no background */
+}
+
+/* Ensure active link keeps underline even on focus */
+.navbar .nav-link.active:focus,
+.navbar .nav-link.active:focus-visible {
+    border-bottom-color: white !important; /* Keep WHITE underline on focus */
 }
 
 /* --- Footer specific --- */
