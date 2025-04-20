@@ -5,65 +5,62 @@ import './Home.css'; // Add CSS for potential specific styling
 
 function Home() {
   return (
-    <div className="home-page container"> {/* Added container class for padding */}
-      {/* Hero Section Removed */}
+    <div className="home-page">
+      <header>
+        <h1>Pathological Demand Avoidance Resources</h1>
+        <p className="subtitle">A collection of information and resources for those living with or supporting individuals with PDA.</p>
+      </header>
 
-      {/* Introductory Text */}
-      {/* Consider making this the primary entry point now */}
-      <section className="intro-text mb-5 px-md-5 text-center">
-        <h1 className="mb-4">Welcome to PDA Resources</h1> {/* Elevate a title here */}
-         <p>
-           Pathological Demand Avoidance (PDA) is a complex profile often linked to autism, characterized by anxiety-driven avoidance of demands. Effective support requires understanding, flexibility, and tailored strategies.
-         </p>
-         <p>
-           This site offers information not just on PDA, but also on navigating related support systems like EHCPs, DLA, and the Blue Badge scheme within the UK.
-         </p>
+      <section className="intro-section">
+        <p>
+          Welcome to PDA Resources, a dedicated platform offering comprehensive information about Pathological Demand Avoidance (PDA), 
+          a profile within the autism spectrum. Our goal is to provide valuable resources, strategies, and support information 
+          for families, educators, and professionals working with individuals who have PDA.
+        </p>
+        <p>
+          This site offers information not just on PDA, but also on navigating related support systems like EHCPs, DLA, and the Blue Badge scheme within the UK.
+        </p>
       </section>
 
-      {/* Key Areas Section */}
-      <section className="key-areas mb-5">
-        <h2 className="text-center mb-4">Explore Key Areas</h2>
-        <div className="row justify-content-center"> {/* Use Bootstrap grid for layout */}
-
-          {/* Card 1: Understanding PDA */}
-          <div className="col-md-6 col-lg-4 mb-4">
-            <div className="card h-100 shadow-sm home-card">
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Understanding PDA</h5>
-                <p className="card-text flex-grow-1">Learn about the characteristics, challenges, and nuances of the Pathological Demand Avoidance profile.</p>
-                <Link to="/pda" className="btn btn-outline-primary mt-auto">Learn More</Link>
+      <section className="feature-cards">
+        <h2>Explore Our Resources</h2>
+        
+        <div className="grid">
+          <div className="grid-col-12 grid-col-md-6 grid-col-lg-4">
+            <div className="card">
+              <div className="card-body">
+                <h3>What is PDA?</h3>
+                <p className="card-text">Learn about the characteristics, challenges, and nuances of the Pathological Demand Avoidance profile.</p>
+                <Link to="/pda" className="button primary">Learn More</Link>
               </div>
             </div>
           </div>
-
-          {/* Card 2: Tips & Strategies */}
-          <div className="col-md-6 col-lg-4 mb-4">
-            <div className="card h-100 shadow-sm home-card">
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Practical Strategies</h5>
-                <p className="card-text flex-grow-1">Discover effective approaches and techniques for supporting children and individuals with PDA.</p>
-                <Link to="/tips" className="btn btn-outline-primary mt-auto">Get Tips</Link>
+          
+          <div className="grid-col-12 grid-col-md-6 grid-col-lg-4">
+            <div className="card">
+              <div className="card-body">
+                <h3>Tips & Strategies</h3>
+                <p className="card-text">Discover effective approaches and techniques for supporting children and individuals with PDA.</p>
+                <Link to="/tips" className="button primary">Get Tips</Link>
               </div>
             </div>
           </div>
-
-          {/* Card 3: Benefits & Support */}
-           <div className="col-md-6 col-lg-4 mb-4">
-            <div className="card h-100 shadow-sm home-card">
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Benefits & Support Systems</h5>
-                <p className="card-text flex-grow-1">Navigate EHCPs, DLA, and the Blue Badge scheme with our helpful guides and resources.</p>
-                {/* Link to a general resources page or specific benefit pages */}
-                <Link to="/ehcp" className="btn btn-sm btn-outline-secondary mb-2 d-block">EHCP Guide</Link>
-                <Link to="/dla" className="btn btn-sm btn-outline-secondary mb-2 d-block">DLA Guide</Link>
-                <Link to="/blue-badge" className="btn btn-sm btn-outline-secondary d-block">Blue Badge Guide</Link>
+          
+          <div className="grid-col-12 grid-col-md-6 grid-col-lg-4">
+            <div className="card">
+              <div className="card-body">
+                <h3>Key Support</h3>
+                <p className="card-text">Navigate EHCPs, DLA, and the Blue Badge scheme with our helpful guides and resources.</p>
+                <div className="button-group">
+                  <Link to="/ehcp" className="button secondary">EHCP Guide</Link>
+                  <Link to="/dla" className="button secondary">DLA Guide</Link>
+                  <Link to="/blue-badge" className="button secondary">Blue Badge Guide</Link>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }

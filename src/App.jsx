@@ -29,16 +29,23 @@ function App() {
   // Refs for navbar collapse
   const navTogglerRef = useRef(null);
   const collapseNavbarRef = useRef(null);
+  
+  // State to control mobile menu
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const location = useLocation(); // Get current location
 
   // Function to close navbar on mobile after click
   const handleNavClick = () => {
-    // Check if the navbar collapse element exists and is currently shown (visible)
-    if (collapseNavbarRef.current && collapseNavbarRef.current.classList.contains('show')) {
-      // Trigger a click on the toggler button to close the collapse menu
-      navTogglerRef.current.click();
+    // Close the mobile menu when a link is clicked
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
     }
+  };
+  
+  // Toggle mobile menu function
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   useEffect(() => {
@@ -66,109 +73,53 @@ function App() {
     return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   };
 
-  const categories = Object.keys(resources || {});
-
-  // Determine if a Key Support sub-page is active
-  const isKeySupportActive = [
-    '/ehcp',
-    '/dla',
-    '/blue-badge'
-  ].some(path => location.pathname.startsWith(path));
-
   return (
     <>
       <ScrollToTop />
       {/* Navigation Bar */}
-      <nav className="navbar navbar-custom navbar-expand-lg navbar-light bg-light fixed-top">
-        <div className="container">
-          {/* Revert to text brand */}
-          <Link className="navbar-brand" to="/" onClick={handleNavClick}>
+      <nav className="main-nav">
+        <div className="nav-container">
+          {/* Brand/logo */}
+          <Link className="nav-brand" to="/" onClick={handleNavClick}>
             PDA Resources
           </Link>
+          
+          {/* Mobile menu toggle button */}
           <button 
-            ref={navTogglerRef}
-            className="navbar-toggler" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav" 
-            aria-controls="navbarNav" 
-            aria-expanded="false" 
+            className="nav-toggler" 
+            onClick={toggleMobileMenu}
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="nav-toggler-icon"></span>
           </button>
-          <div 
-            ref={collapseNavbarRef}
-            className="collapse navbar-collapse" 
-            id="navbarNav"
-          >
-            <ul className="navbar-nav ms-auto">
+          
+          {/* Navigation menu */}
+          <div className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
+            <ul className="nav-list">
               <li className="nav-item">
-                {/* Use NavLink for active styling */}
                 <NavLink className="nav-link" to="/" end onClick={handleNavClick}>Home</NavLink>
               </li>
-              {/* Add What is PDA? Link */}
               <li className="nav-item">
                 <NavLink className="nav-link" to="/pda" onClick={handleNavClick}>What is PDA?</NavLink>
               </li>
-              {/* Resources Dropdown */}
-              <li className="nav-item dropdown">
-                <NavLink 
-                  className="nav-link dropdown-toggle" 
-                  to="/resources" 
-                  role="button" 
-                  data-bs-toggle="dropdown" 
-                  aria-expanded="false"
-                >
-                  Resources
-                </NavLink>
-                <ul className="dropdown-menu">
-                  {loading ? (
-                    <li><span className="dropdown-item">Loading...</span></li>
-                  ) : error ? (
-                    <li><span className="dropdown-item text-danger">Error</span></li>
-                  ) : (
-                    categories.map(category => (
-                      <li key={generateId(category)}>
-                        {/* Link to resource page with hash */}
-                        <Link 
-                          className="dropdown-item" 
-                          to={`/resources#${generateId(category)}`}
-                          onClick={handleNavClick}
-                        >
-                          {category}
-                        </Link>
-                      </li>
-                    ))
-                  )}
-                </ul>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/resources" onClick={handleNavClick}>Resources</NavLink>
               </li>
-              {/* Add Articles Link */}
               <li className="nav-item">
                 <NavLink className="nav-link" to="/articles" onClick={handleNavClick}>Articles</NavLink>
               </li>
-              {/* Tips & Strategies Link */}
               <li className="nav-item">
                 <NavLink className="nav-link" to="/tips" onClick={handleNavClick}>Tips & Strategies</NavLink>
               </li>
-              {/* Key Support Dropdown */}
-              <li className={`nav-item dropdown ${isKeySupportActive ? 'active-dropdown-parent' : ''}`}>
-                <a 
-                  className={`nav-link dropdown-toggle ${isKeySupportActive ? 'active' : ''}`} 
-                  href="#"
-                  role="button" 
-                  data-bs-toggle="dropdown" 
-                  aria-expanded="false"
-                >
-                  Key Support
-                </a>
-                <ul className="dropdown-menu">
-                  <li><NavLink className="dropdown-item" to="/ehcp" onClick={handleNavClick}>EHCP</NavLink></li>
-                  <li><NavLink className="dropdown-item" to="/dla" onClick={handleNavClick}>DLA</NavLink></li>
-                  <li><NavLink className="dropdown-item" to="/blue-badge" onClick={handleNavClick}>Blue Badge</NavLink></li>
-                </ul>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/ehcp" onClick={handleNavClick}>EHCP</NavLink>
               </li>
-              {/* Removed individual links for EHCP, DLA, Blue Badge */}
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/dla" onClick={handleNavClick}>DLA</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/blue-badge" onClick={handleNavClick}>Blue Badge</NavLink>
+              </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/contact" onClick={handleNavClick}>Contact</NavLink>
               </li>
@@ -177,8 +128,8 @@ function App() {
         </div>
       </nav>
 
-      {/* Main Content Area - Routes define what component renders */}
-      <div className="container app-container">
+      {/* Main Content Area */}
+      <div className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pda" element={<PDA />} />
@@ -193,23 +144,20 @@ function App() {
               />
             )} 
           />
-          {/* Add routes for the new pages */}
           <Route path="/ehcp" element={<Ehcp />} />
           <Route path="/dla" element={<Dla />} />
           <Route path="/blue-badge" element={<BlueBadge />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/tips" element={<TipsAndTricks />} />
           <Route path="/contact" element={<Contact />} />
-          {/* Add a fallback route maybe? */}
-          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </div>
 
       {/* Footer */}
-      <footer className="text-center mt-auto py-3">
-        <div className="container">
-          <p className="mb-0">&copy; {new Date().getFullYear()} PDA Resources. Content gathered from various sources.</p>
-          <p className="small mb-0">This site provides informational links and is not a substitute for professional advice.</p>
+      <footer className="site-footer">
+        <div className="footer-container">
+          <p>&copy; {new Date().getFullYear()} PDA Resources. Content gathered from various sources.</p>
+          <p className="disclaimer">This site provides informational links and is not a substitute for professional advice.</p>
         </div>
       </footer>
 

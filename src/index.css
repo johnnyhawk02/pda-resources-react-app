@@ -15,6 +15,11 @@ html {
   --light-grey: #ecf0f1; /* Keeping existing Light Grey */
   --card-bg: #ffffff; /* Keeping White for cards */
   --card-shadow: rgba(52, 73, 94, 0.1); /* Subtle Shadow using text color base */
+  --navbar-bg: #111; /* Black background for navbar */
+  --navbar-text: #aaa; /* Light grey for navbar text */
+  --navbar-active: #fff; /* White for active links */
+  --navbar-hover: #ddd; /* Light grey for hover */
+  --dropdown-bg: #222; /* Slightly lighter black for dropdowns */
 
   /* Merriweather/Open Sans Font Stack */
   --app-headline-font-family: 'Merriweather', serif;
@@ -35,7 +40,7 @@ html {
 
 body {
   margin: 0;
-  padding-top: 80px; /* Add padding to account for fixed navbar */
+  padding-top: 55px; /* Add padding to account for fixed navbar */
   font-family: var(--app-body-font-family);
   background-color: var(--background-color);
   color: var(--text-color);
@@ -44,11 +49,13 @@ body {
   flex-direction: column;
 }
 
-/* Main application container - seen in App.jsx */
-.app-container {
+/* Main content container */
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   flex-grow: 1; /* Ensures footer stays at bottom */
-  padding-top: 1rem; /* Reduced spacing below navbar */
-  padding-bottom: 3rem; /* Spacing above footer */
 }
 
 /* --- Typography --- */
@@ -69,18 +76,12 @@ h1 {
 
 h2 {
   font-size: 2rem; 
-  /* Removed specific border styles */
 }
 
 h3 {
   font-size: 1.5rem;
-  color: var(--primary-color); /* Keep primary color for H3? Or make text-color? */
+  color: var(--primary-color);
 }
-
-/* Removing the specific complex h2 selectors */
-
-/* Consistent Sub-Headings (H3) - Simplified */
-/* h3 styles are now combined above */
 
 p {
   margin-bottom: 1.2rem; /* Consistent paragraph spacing */
@@ -105,13 +106,12 @@ a:hover {
 
 /* --- Buttons --- */
 
-button, .btn {
-  /* Using .btn class as well if Bootstrap is used */
-  display: inline-block; /* Ensure buttons behave correctly */
-  border-radius: 6px; /* Sharper corners */
+button {
+  display: inline-block;
+  border-radius: 6px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em; /* Adjusted padding */
-  font-size: 0.95rem; /* Slightly smaller base font */
+  padding: 0.6em 1.2em;
+  font-size: 0.95rem;
   font-weight: 500;
   font-family: var(--app-body-font-family);
   background-color: var(--primary-color);
@@ -119,203 +119,298 @@ button, .btn {
   cursor: pointer;
   text-align: center;
   vertical-align: middle;
-  user-select: none; /* Prevent text selection */
+  user-select: none;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-button:hover, .btn:hover {
+button:hover {
   background-color: #2980b9; /* Slightly darker primary blue */
   color: white;
-  /* Removed transform */
 }
 
-/* Style for outline buttons if needed */
-.btn-outline-primary {
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  margin: 0.25rem 0;
+}
+
+.button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid transparent;
+}
+
+.button.primary:hover {
+  background-color: #2980b9;
+}
+
+.button.secondary {
   background-color: transparent;
-  border-color: var(--primary-color);
+  color: var(--text-color);
+  border: 1px solid var(--light-grey);
+}
+
+.button.secondary:hover {
+  background-color: var(--light-grey);
   color: var(--primary-color);
 }
 
-.btn-outline-primary:hover {
-  background-color: var(--primary-color);
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* --- Main Navigation --- */
+.main-nav {
+  background-color: var(--navbar-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  height: 55px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-brand {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  color: var(--navbar-text) !important;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--navbar-hover) !important;
+}
+
+.nav-link.active {
+  color: var(--navbar-active) !important;
+  border-bottom: 2px solid var(--navbar-active);
+}
+
+/* Mobile menu toggle */
+.nav-toggler {
+  display: none;
+  background: transparent;
+  border: none;
   color: white;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  position: relative;
 }
 
-.btn-outline-secondary {
-    background-color: transparent;
-    border-color: var(--light-grey);
-    color: var(--text-color);
+.nav-toggler-icon {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  transition: background-color 0.3s ease;
 }
 
-.btn-outline-secondary:hover {
-    background-color: var(--light-grey);
-    color: var(--primary-color);
+.nav-toggler-icon:before,
+.nav-toggler-icon:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  transition: transform 0.3s ease;
 }
 
-/* Example Card Base Style */
+.nav-toggler-icon:before {
+  top: -8px;
+}
+
+.nav-toggler-icon:after {
+  bottom: -8px;
+}
+
+/* Mobile menu styles */
+@media (max-width: 991px) {
+  .nav-toggler {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    background-color: var(--navbar-bg);
+    border-top: 1px solid var(--dropdown-bg);
+    display: none;
+    z-index: 1000;
+  }
+  
+  .nav-menu.open {
+    display: block;
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  .nav-item {
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-link {
+    padding: 12px 20px;
+    width: 100%;
+    border-bottom: none;
+  }
+}
+
+/* --- Card Styling --- */
 .card {
-  border: 1px solid var(--light-grey); /* Subtle border */
-  border-radius: 8px; /* Slightly rounded */
-  box-shadow: none; /* Remove default shadow for minimal */
+  border: 1px solid var(--light-grey);
+  border-radius: 8px;
   background-color: var(--card-bg);
   margin-bottom: 1.5rem;
-  overflow: hidden; /* Clip content */
-  /* Update transition for smoother feel and include border-color */
+  overflow: hidden;
   transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out; 
 }
 
-/* Global card hover effect */
 .card:hover {
-  transform: translateY(-4px); /* Keep lift subtle */
-  box-shadow: 0 0.5rem 1.5rem var(--card-shadow); /* Slightly enhance shadow on hover */
-  border-color: var(--primary-color); /* Add border color change */
+  transform: translateY(-4px);
+  box-shadow: 0 0.5rem 1.5rem var(--card-shadow);
+  border-color: var(--primary-color);
 }
 
 .card-body {
- padding: 1.5rem; /* Good internal padding */
+ padding: 1.5rem;
 }
 
-/* --- Navbar specific (basic adjustments) --- */
-.navbar {
-  background-color: #111 !important; /* Black background */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important; /* Subtle shadow */
-  position: fixed;
-  width: 100%;
-  z-index: 1030; /* Ensure it's above other content */
-}
-
-/* Custom Navbar Height */
-.navbar-custom {
-  height: 65px; /* Set desired height */
-  display: flex;
-  align-items: center;
-}
-
-/* Ensure container within custom navbar aligns */
-.navbar-custom .container {
-    display: flex;
-    align-items: center;
-    height: 100%; 
-}
-
-.navbar .navbar-brand,
-.navbar .navbar-brand:hover {
-  font-weight: 600;
-  color: #fff !important; /* White text for visibility */
-}
-
-/* Base Nav Link Style (Desktop & Mobile) */
-.navbar .nav-link {
-  font-weight: 500;
-  color: #aaa !important; /* Light grey text for menu items */
-  background-color: transparent;
-  border-bottom: 2px solid transparent; 
-  margin-bottom: -2px; 
-  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-  outline: none;
-}
-
-/* Hover & Focus (No Visual Change on color, keep transparent border) */
-.navbar .nav-link:hover,
-.navbar .nav-link:focus,
-.navbar .nav-link:focus-visible {
-  color: #ddd !important; /* Lighter grey on hover */
-  border-bottom-color: transparent;
-  background-color: transparent;
-  outline: none;
-  box-shadow: none;
-}
-
-/* Active State (Desktop Underline) */
-.navbar-expand-lg .navbar-nav > .nav-link.active { 
-  border-bottom-color: #fff; /* White underline */
-  color: #fff !important; /* White text for active/current page */
-}
-
-/* Mobile menu active link */
-.navbar-collapse .navbar-nav .nav-link.active {
-  color: #fff !important; /* White text for active mobile link */
-}
-
-/* Toggler */
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.2) !important; /* Light border */
-}
-.navbar-toggler-icon {
-   /* Use white stroke color for the hamburger icon */
-   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
-/* --- Dropdown Menu Styles (Common) --- */
-.dropdown-menu {
-  background-color: #111 !important; /* Black background */
-  border-radius: 4px;
-  margin-top: 0.25rem;
-  padding: 0.5rem 0;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.3) !important; 
-}
-
-/* Desktop Specific Dropdown Border */
-.navbar-expand-lg .navbar-nav .dropdown-menu {
-   border: 1px solid #333 !important; 
-}
-
-/* Mobile Specific Dropdown Border/Padding */
-.navbar-collapse .dropdown-menu {
-   border: none !important; /* Mobile has no border */
-   padding: 0.5rem 0 0.5rem 1rem; /* Keep mobile indent padding */
-}
-
-/* Dropdown Item Styles (Common) */
-.dropdown-item {
-  color: #aaa !important; /* Light grey text to match nav links */
-  background-color: transparent !important;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-}
-
-/* Dropdown Item Hover/Focus (Common) */
-.dropdown-item:hover,
-.dropdown-item:focus {
-  color: #fff !important; /* White text on hover */
-  background-color: #222 !important; /* Darker black background */
-}
-
-
-/* --- Mobile Menu Specific Styles --- */
-.navbar-collapse {
-  background-color: transparent !important; /* Match transparent navbar */
-  /* Remove padding/margin/shadow/border from collapse itself */
-  padding: 0;
-  margin-top: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* Specific overrides for links within mobile collapse */
-.navbar-collapse .navbar-nav .nav-link {
-  color: #aaa !important; /* Light grey for mobile menu items */
-  border-bottom: none !important; /* No border/underline in mobile */
-  padding: 0.75rem 1rem; /* Adjust padding for spacing */
-  margin-bottom: 0;
-}
-
-.navbar-collapse .navbar-nav .nav-link.active {
-  color: #fff !important; /* White for active mobile link */
-  /* Maybe add background? background-color: rgba(0,0,0,0.05); */
-}
-
-/* --- Footer specific --- */
-footer {
+/* --- Footer --- */
+.site-footer {
   padding: 1.5rem 0;
-  background-color: var(--light-grey); /* Light background */
+  background-color: var(--light-grey);
   color: var(--text-color);
-  margin-top: auto; /* Pushes footer down */
+  margin-top: auto;
+  text-align: center;
 }
 
-footer p {
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-footer p {
   margin-bottom: 0.25rem;
+}
+
+.site-footer .disclaimer {
   font-size: 0.9rem;
+}
+
+/* --- Grid Layout --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.grid-col-1 { grid-column: span 1; }
+.grid-col-2 { grid-column: span 2; }
+.grid-col-3 { grid-column: span 3; }
+.grid-col-4 { grid-column: span 4; }
+.grid-col-5 { grid-column: span 5; }
+.grid-col-6 { grid-column: span 6; }
+.grid-col-7 { grid-column: span 7; }
+.grid-col-8 { grid-column: span 8; }
+.grid-col-9 { grid-column: span 9; }
+.grid-col-10 { grid-column: span 10; }
+.grid-col-11 { grid-column: span 11; }
+.grid-col-12 { grid-column: span 12; }
+
+@media (max-width: 991px) {
+  .grid-col-md-1 { grid-column: span 1; }
+  .grid-col-md-2 { grid-column: span 2; }
+  .grid-col-md-3 { grid-column: span 3; }
+  .grid-col-md-4 { grid-column: span 4; }
+  .grid-col-md-5 { grid-column: span 5; }
+  .grid-col-md-6 { grid-column: span 6; }
+  .grid-col-md-7 { grid-column: span 7; }
+  .grid-col-md-8 { grid-column: span 8; }
+  .grid-col-md-9 { grid-column: span 9; }
+  .grid-col-md-10 { grid-column: span 10; }
+  .grid-col-md-11 { grid-column: span 11; }
+  .grid-col-md-12 { grid-column: span 12; }
+}
+
+@media (max-width: 767px) {
+  .grid-col-sm-1 { grid-column: span 1; }
+  .grid-col-sm-2 { grid-column: span 2; }
+  .grid-col-sm-3 { grid-column: span 3; }
+  .grid-col-sm-4 { grid-column: span 4; }
+  .grid-col-sm-5 { grid-column: span 5; }
+  .grid-col-sm-6 { grid-column: span 6; }
+  .grid-col-sm-7 { grid-column: span 7; }
+  .grid-col-sm-8 { grid-column: span 8; }
+  .grid-col-sm-9 { grid-column: span 9; }
+  .grid-col-sm-10 { grid-column: span 10; }
+  .grid-col-sm-11 { grid-column: span 11; }
+  .grid-col-sm-12 { grid-column: span 12; }
 }
 
 /* Font Switcher - Basic Hide (can be styled better later) */
@@ -323,5 +418,36 @@ footer p {
   display: none; /* Hide for now unless needed */
 }
 
-/* Remove default light/dark mode overrides */
-/* @media (prefers-color-scheme: light) { ... } */
+/* Home page styles */
+.home-page {
+  padding: 1rem 0 3rem;
+}
+
+.home-page header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.home-page .subtitle {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-section {
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.feature-cards {
+  margin-bottom: 3rem;
+}
+
+.feature-cards h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
