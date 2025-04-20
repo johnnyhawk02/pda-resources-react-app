@@ -18,49 +18,75 @@ function Resources({ resources, loading, error, generateId }) {
     }, [location.hash]);
 
     if (loading) {
-        return <p className="text-center">Loading resources...</p>;
+        return <div className="resources-loading">Loading resources...</div>;
     }
 
     if (error) {
-        return <div className="alert alert-danger" role="alert">{error}</div>;
+        return <div className="resources-error">{error}</div>;
     }
 
     const categories = Object.keys(resources);
 
     return (
-        <div id="resource-sections">
-            {categories.map(category => {
-                const categoryId = generateId(category);
-                const links = resources[category] || []; // Ensure links is always an array
+        <div className="resources-container">
+            <header className="resources-header">
+                <h1>Resources</h1>
+                <p className="subtitle">Helpful links and information organized by category</p>
+            </header>
+            
+            <nav className="category-navigation">
+                <h3>Categories</h3>
+                <ul className="category-list">
+                    {categories.map(category => {
+                        const categoryId = generateId(category);
+                        const links = resources[category] || [];
+                        if (links.length === 0) return null;
+                        
+                        return (
+                            <li key={`nav-${categoryId}`}>
+                                <a href={`#${categoryId}`}>{category}</a>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </nav>
 
-                // Don't render empty categories
-                if (links.length === 0) {
-                    return null;
-                }
-                
-                return (
-                    <section key={categoryId} id={categoryId} className="resource-section">
-                        <h2 className="mb-3">{category}</h2>
-                        <div className="list-group shadow-sm">
-                            {links.map((link, index) => (
-                                <a 
-                                    key={`${categoryId}-${index}`} 
-                                    href={link.url} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="list-group-item list-group-item-action"
-                                >
-                                    <h5 className="mb-1">{link.title}</h5>
-                                    {/* Conditionally render description if it exists */}
-                                    {link.description && <p className="mb-1">{link.description}</p>}
-                                    {/* Conditionally render postcode if it exists and is not empty */}
-                                    {link.postcode && <p className="mb-0 text-muted small">Postcode: {link.postcode}</p>}
-                                </a>
-                            ))}
-                        </div>
-                    </section>
-                );
-            })}
+            <div className="resource-sections">
+                {categories.map(category => {
+                    const categoryId = generateId(category);
+                    const links = resources[category] || [];
+
+                    // Don't render empty categories
+                    if (links.length === 0) {
+                        return null;
+                    }
+                    
+                    return (
+                        <section key={categoryId} id={categoryId} className="resource-section">
+                            <h2 className="category-title">{category}</h2>
+                            <div className="resource-list">
+                                {links.map((link, index) => (
+                                    <a 
+                                        key={`${categoryId}-${index}`} 
+                                        href={link.url} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="resource-card"
+                                    >
+                                        <h3 className="resource-title">{link.title}</h3>
+                                        {link.description && 
+                                            <p className="resource-description">{link.description}</p>
+                                        }
+                                        {link.postcode && 
+                                            <p className="resource-postcode">Postcode: {link.postcode}</p>
+                                        }
+                                    </a>
+                                ))}
+                            </div>
+                        </section>
+                    );
+                })}
+            </div>
         </div>
     );
 }

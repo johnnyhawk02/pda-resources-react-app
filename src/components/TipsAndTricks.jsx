@@ -51,7 +51,7 @@ function TipsAndTricks() {
         <p>Children with PDA thrive when they feel included in decision-making, as it reduces the sense of external control.</p>
         <ul>
           <li><strong>Offer meaningful choices:</strong> Provide options that align with the goal but give the child agency.
-            <ul><li><em>Example: "Would you like to do your math now or after a snack?"</em></li></ul>
+            <ul><li><em>Example: "Would you like to do your maths now or after a snack?"</em></li></ul>
           </li>
           <li><strong>Co-create plans:</strong> Involve the child in planning routines or tasks to increase buy-in.
              <ul><li><em>Example: "How about we make a chart together for your morning routine?"</em></li></ul>

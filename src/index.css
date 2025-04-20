@@ -201,6 +201,18 @@ button:hover {
   height: 100%;
 }
 
+.nav-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+  object-fit: contain;
+  filter: invert(1) brightness(100%); /* Makes black SVG white */
+}
+
+.brand-text {
+  color: white;
+}
+
 .nav-list {
   display: flex;
   list-style: none;
@@ -236,7 +248,7 @@ button:hover {
 
 .nav-link.active {
   color: var(--navbar-active) !important;
-  border-bottom: 2px solid var(--navbar-active);
+  border-bottom: none;
 }
 
 /* Mobile menu toggle */
@@ -249,6 +261,8 @@ button:hover {
   width: 30px;
   height: 30px;
   position: relative;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-toggler-icon {
@@ -317,6 +331,17 @@ button:hover {
     padding: 12px 20px;
     width: 100%;
     border-bottom: none;
+  }
+}
+
+/* Hide brand text on smaller screens */
+@media (max-width: 767px) {
+  .brand-text {
+    display: none;
+  }
+  
+  .nav-logo {
+    height: 35px;
   }
 }
 

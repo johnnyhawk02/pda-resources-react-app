@@ -18,7 +18,7 @@
 
 .list-group-item-action {
     border: 1px solid var(--light-grey);
-    border-radius: 8px !important; /* Override Bootstrap */
+    border-radius: 8px !important; 
     margin-bottom: 1rem;
     padding: 1.25rem 1.5rem; 
     background-color: var(--card-bg);
@@ -48,4 +48,169 @@
 
 .list-group-item-action p.small {
     font-size: 0.85rem; /* Smaller font size for postcode */
+}
+
+/* Resources Page Styles */
+.resources-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.resources-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.resources-header h1 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.resources-header .subtitle {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Loading and Error States */
+.resources-loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.resources-error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #c62828;
+  margin: 1rem 0;
+}
+
+/* Category Navigation */
+.category-navigation {
+  background-color: var(--light-grey);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.category-navigation h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.category-list li a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.category-list li a:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Resource Sections */
+.resource-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 70px; /* For smooth scrolling, adjusts scroll position to account for fixed header */
+}
+
+.category-title {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+/* Resource Cards */
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.resource-card {
+  display: block;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--text-color);
+  border: 1px solid var(--light-grey);
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.resource-title {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.resource-description {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.resource-postcode {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resource-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-list {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .category-list li a {
+    width: 100%;
+    display: block;
+  }
 } 

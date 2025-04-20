@@ -12,6 +12,7 @@ import Articles from './components/Articles'
 import PDA from './components/PDA'
 import TipsAndTricks from './components/TipsAndTricks'
 import ScrollToTop from './components/ScrollToTop'
+import logoSvg from './assets/images/brainstorming-svgrepo-com.svg'
 import './App.css'
 
 // Define default fonts
@@ -81,7 +82,8 @@ function App() {
         <div className="nav-container">
           {/* Brand/logo */}
           <Link className="nav-brand" to="/" onClick={handleNavClick}>
-            PDA Resources
+            <img src={logoSvg} alt="PDA Resources Logo" className="nav-logo" />
+            <span className="brand-text">PDA Resources</span>
           </Link>
           
           {/* Mobile menu toggle button */}
