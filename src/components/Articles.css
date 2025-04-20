@@ -6,13 +6,10 @@
 
 .article-card {
     border: none; /* Remove default card border */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    /* Transition now handled globally by .card */
 }
 
-.article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px var(--card-shadow) !important; /* Enhance shadow on hover */
-}
+/* Removed hover effect - now handled globally by .card:hover */
 
 .article-card .card-title {
     color: var(--primary-color);

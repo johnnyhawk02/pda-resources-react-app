@@ -22,15 +22,16 @@
     margin-bottom: 1rem;
     padding: 1.25rem 1.5rem; 
     background-color: var(--card-bg);
-    box-shadow: 0 2px 5px var(--card-shadow);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    /* Apply base card styles */
+    box-shadow: none; /* Align with global .card base */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Align with global .card base */
 }
 
+/* Let global .card:hover handle the hover effects */
 .list-group-item-action:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px var(--card-shadow);
-    background-color: var(--card-bg) !important; /* Keep background white on hover */
-    border-color: var(--primary-color);
+   /* Inherit global hover transform/shadow/border */
+   background-color: var(--card-bg) !important; /* Keep background white on hover */
+   /* Removed border-color override */
 }
 
 .list-group-item-action h5 {

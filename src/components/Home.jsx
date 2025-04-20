@@ -1,31 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 import './Home.css'; // Add CSS for potential specific styling
-import heroImage from '../assets/images/sunny.jpg'; // Import the hero image
+// import heroImage from '../assets/images/sunny.jpg'; // No longer needed
 
 function Home() {
   return (
-    <div className="home-page"> {/* Changed container class for specific styling */}
-      {/* Hero Section */}
-      <section 
-        className="hero-section text-center mb-5 p-5 rounded shadow-sm"
-        style={{ backgroundImage: `url(${heroImage})` }} 
-      >
-        {/* Add an overlay div for text readability */}
-        <div className="hero-overlay"> 
-          <h1 className="display-4">Navigating PDA & SEND</h1> {/* More prominent title */}
-          <p className="lead my-3">
-            Understanding Pathological Demand Avoidance and supporting Special Educational Needs and Disabilities.
-          </p>
-          <p>
-            Your comprehensive guide to resources, strategies, and support in the UK.
-          </p>
-          <Link to="/resources" className="btn btn-primary btn-lg mt-3">Explore Resources</Link> {/* Call to action */}
-        </div>
-      </section>
+    <div className="home-page container"> {/* Added container class for padding */}
+      {/* Hero Section Removed */}
 
-      {/* Introductory Text (Optional - can be refined or removed if redundant) */}
+      {/* Introductory Text */}
+      {/* Consider making this the primary entry point now */}
       <section className="intro-text mb-5 px-md-5 text-center">
+        <h1 className="mb-4">Welcome to PDA Resources</h1> {/* Elevate a title here */}
          <p>
            Pathological Demand Avoidance (PDA) is a complex profile often linked to autism, characterized by anxiety-driven avoidance of demands. Effective support requires understanding, flexibility, and tailored strategies.
          </p>
@@ -33,7 +19,6 @@ function Home() {
            This site offers information not just on PDA, but also on navigating related support systems like EHCPs, DLA, and the Blue Badge scheme within the UK.
          </p>
       </section>
-
 
       {/* Key Areas Section */}
       <section className="key-areas mb-5">

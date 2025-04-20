@@ -1,21 +1,29 @@
+/* Apply a natural box layout model to all elements */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 :root {
   /* Color Palette */
-  --primary-color: #3498db; /* Brighter Blue */
-  --accent-color: #f39c12; /* Warm Orange */
-  --background-color: #fdfdff; /* Very Light Grey/Off-white */
-  --text-color: #34495e; /* Dark Slate Blue */
-  --light-grey: #ecf0f1; /* Light Grey for borders/subtle backgrounds */
-  --card-bg: #ffffff; /* White for cards */
-  --card-shadow: rgba(0, 0, 0, 0.08);
+  --primary-color: #3498db; /* Brighter Blue - Original */
+  --accent-color: #f39c12; /* Warm Orange - Original */
+  --background-color: #fdfdff; /* Keeping existing Very Light Grey/Off-white */
+  --text-color: #34495e; /* Dark Slate Blue - Original */
+  --light-grey: #ecf0f1; /* Keeping existing Light Grey */
+  --card-bg: #ffffff; /* Keeping White for cards */
+  --card-shadow: rgba(52, 73, 94, 0.1); /* Subtle Shadow using text color base */
 
-  /* Define CSS variables for fonts */
-  --app-headline-font-family: "Poppins", sans-serif; /* Default Headline */
-  --app-body-font-family: "Roboto", sans-serif;     /* Default Body */
+  /* Modern Font Stack */
+  --app-headline-font-family: 'Inter', sans-serif;
+  --app-body-font-family: 'Inter', sans-serif;
 
-  line-height: 1.6; /* Slightly more line spacing */
+  line-height: 1.65; /* Slightly more generous line height */
   font-weight: 400;
 
-  color-scheme: light; /* Assuming light mode primarily */
+  color-scheme: light;
   color: var(--text-color);
   background-color: var(--background-color);
 
@@ -25,83 +33,189 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: var(--primary-color); 
-  text-decoration: none; /* Remove underline by default */
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover {
-  color: var(--accent-color); 
-  text-decoration: underline;
-}
-
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  padding-top: 80px; /* Add padding to account for fixed navbar */
   font-family: var(--app-body-font-family);
   background-color: var(--background-color);
   color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Apply the headline font variable */
+/* Main application container - seen in App.jsx */
+.app-container {
+  flex-grow: 1; /* Ensures footer stays at bottom */
+  padding-top: 2rem; /* Spacing below navbar */
+  padding-bottom: 3rem; /* Spacing above footer */
+}
+
+/* --- Typography --- */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--app-headline-font-family);
-  color: var(--primary-color); /* Headlines use primary color */
-  font-weight: 600; /* Make headlines a bit bolder */
+  color: var(--text-color); /* Default to text color for minimal look */
+  font-weight: 600; 
+  margin-top: 1.5em; /* Consistent top margin */
+  margin-bottom: 0.8em; /* Consistent bottom margin */
+  line-height: 1.3;
 }
 
-/* Apply body font to common text elements */
-p, li, label, span, div /* Add other elements as needed */ {
-    font-family: var(--app-body-font-family);
-    color: var(--text-color);
-    line-height: 1.6;
+h1 {
+  font-size: 2.5rem; /* Example size */
+  font-weight: 700;
 }
 
-/* Consistent Page Titles (Main H2 on each page) */
-.app-container > div > h2, /* Targets H2 in Contact, ECHP, DLA, BlueBadge */
-.app-container > section > h2, /* Targets H2 in Home */
-.pda-page > h2, /* Targets H2 in PDA */
-.tips-page > h2, /* Added */
-.articles-page > h2, /* Targets H2 in Articles */
-.resource-section > h2 /* Targets H2 in Resources sections */
-{
-    margin-top: 0; /* Remove extra top margin if container already has it */
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--accent-color);
-    display: inline-block; /* Keep border tight */
-    max-width: 100%; /* Prevent overflow */
+h2 {
+  font-size: 2rem; 
+  /* Removed specific border styles */
 }
 
-/* Consistent Sub-Headings (H3 within page content) */
 h3 {
-    color: var(--primary-color); /* Match H2 color */
-    font-family: var(--app-headline-font-family); /* Match H2 font */
-    font-weight: 600; /* Match H2 weight */
-    margin-top: 2rem; /* Add some space above subheadings */
-    margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color); /* Keep primary color for H3? Or make text-color? */
 }
 
-button {
-  border-radius: 20px; /* More rounded buttons */
+/* Removing the specific complex h2 selectors */
+
+/* Consistent Sub-Headings (H3) - Simplified */
+/* h3 styles are now combined above */
+
+p {
+  margin-bottom: 1.2rem; /* Consistent paragraph spacing */
+  font-family: var(--app-body-font-family);
+  color: var(--text-color);
+  line-height: 1.65;
+}
+
+/* --- Links --- */
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent-color);
+  text-decoration: none; /* No underline on hover */
+}
+
+/* --- Buttons --- */
+
+button, .btn {
+  /* Using .btn class as well if Bootstrap is used */
+  display: inline-block; /* Ensure buttons behave correctly */
+  border-radius: 6px; /* Sharper corners */
   border: 1px solid transparent;
-  padding: 0.6em 1.5em; /* Adjust padding */
-  font-size: 1em;
+  padding: 0.6em 1.2em; /* Adjusted padding */
+  font-size: 0.95rem; /* Slightly smaller base font */
   font-weight: 500;
   font-family: var(--app-body-font-family);
   background-color: var(--primary-color);
   color: white;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none; /* Prevent text selection */
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-button:hover {
-  background-color: var(--accent-color);
-  transform: translateY(-1px);
+button:hover, .btn:hover {
+  background-color: #2980b9; /* Slightly darker primary blue */
+  color: white;
+  /* Removed transform */
 }
 
-/* Remove default light/dark mode overrides if we're defining our own */
+/* Style for outline buttons if needed */
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    border-color: var(--light-grey);
+    color: var(--text-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--light-grey);
+    color: var(--primary-color);
+}
+
+/* Example Card Base Style */
+.card {
+  border: 1px solid var(--light-grey); /* Subtle border */
+  border-radius: 8px; /* Slightly rounded */
+  box-shadow: none; /* Remove default shadow for minimal */
+  background-color: var(--card-bg);
+  margin-bottom: 1.5rem;
+  overflow: hidden; /* Clip content */
+  /* Update transition for smoother feel and include border-color */
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out; 
+}
+
+/* Global card hover effect */
+.card:hover {
+  transform: translateY(-4px); /* Keep lift subtle */
+  box-shadow: 0 0.5rem 1.5rem var(--card-shadow); /* Slightly enhance shadow on hover */
+  border-color: var(--primary-color); /* Add border color change */
+}
+
+.card-body {
+ padding: 1.5rem; /* Good internal padding */
+}
+
+/* --- Navbar specific (basic adjustments) --- */
+/* Assumes Bootstrap navbar classes */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+  background-color: rgba(255, 255, 255, 0.95) !important; /* Slightly transparent white */
+  backdrop-filter: blur(5px); /* Blur effect for modern feel */
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-color) !important; 
+  transition: color 0.15s ease-in-out;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color) !important; 
+}
+
+/* --- Footer specific --- */
+footer {
+  padding: 1.5rem 0;
+  background-color: var(--light-grey); /* Light background */
+  color: var(--text-color);
+  margin-top: auto; /* Pushes footer down */
+}
+
+footer p {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Font Switcher - Basic Hide (can be styled better later) */
+.font-switcher-container {
+  display: none; /* Hide for now unless needed */
+}
+
+/* Remove default light/dark mode overrides */
 /* @media (prefers-color-scheme: light) { ... } */

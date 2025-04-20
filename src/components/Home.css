@@ -1,129 +1,46 @@
 /* Styles for the Home component */
 
-.home-page .hero-section {
-  /* Remove gradient, apply background image via inline style in JSX */
-  background-size: cover; /* Cover the entire section */
-  background-position: center center; /* Center the image */
-  position: relative; /* Needed for overlay positioning */
-  color: white;
-  border-radius: 8px; 
-  padding: 5rem 1.5rem; /* Increased padding for better spacing with image */
-  overflow: hidden; /* Ensure overlay doesn't spill */
-}
-
-.home-page .hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* Darker overlay (increased from 0.5) */
-  z-index: 1; /* Overlay below text */
-}
-
-/* Style the overlay container added in JSX */
-.home-page .hero-section .hero-overlay {
-  position: relative;
-  z-index: 2; /* Ensure text is above the overlay */
-}
-
-.home-page .hero-section h1 {
-  color: white; /* Ensure heading is white */
-  font-weight: 700; /* Bolder heading */
-}
-
-.home-page .hero-section .lead {
-  font-size: 1.25rem;
-  font-weight: 400; /* Slightly increased weight for better visibility */
-  opacity: 0.95; /* Ensure it's nearly fully opaque */
-}
-
-.home-page .hero-section .btn-primary {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
-}
-
-.home-page .hero-section .btn-primary:hover {
-  background-color: #e67e22; /* Darker accent */
-  border-color: #e67e22;
-  transform: translateY(-2px);
-}
+/* Hero Section Styles Removed */
 
 .home-page .intro-text {
   color: var(--text-color);
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* Keep slightly larger intro text */
   line-height: 1.7;
+  max-width: 800px; /* Constrain width for readability */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-page .key-areas h2 {
-  /* Use global h2 styles if defined, or add specific styling here */
-  color: var(--primary-color);
-  font-weight: 600;
-  border-bottom: 2px solid var(--accent-color);
-  display: inline-block;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem; /* Ensure spacing matches global */
+  /* Rely on global h2 styles from index.css */
+  text-align: center;
+  margin-bottom: 2.5rem; /* More space before cards */
 }
 
+/* Update card styles to align with index.css base */
 .home-page .home-card {
-  border: none; /* Remove default card border */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  background-color: var(--card-bg);
-}
-
-.home-page .home-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem var(--card-shadow); /* Enhanced shadow on hover */
+  /* Use base .card styles from index.css */
+  /* Add specific overrides or extensions if needed */
+  /* Transition is now handled globally in index.css */
+  text-align: center;
 }
 
 .home-page .home-card .card-title {
+  /* Use global h5 style or define here */
   color: var(--primary-color);
   font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .home-page .home-card .card-text {
   color: var(--text-color);
   font-size: 0.95rem;
+  margin-bottom: 1.5rem; /* Space before button */
 }
 
-.home-page .home-card .btn-outline-primary {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+.home-page .home-card .btn {
+  /* Buttons inside cards */
+  margin-top: auto; /* Pushes button to bottom in flex container */
 }
 
-.home-page .home-card .btn-outline-primary:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.home-page .home-card .btn-sm {
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
-}
-
-.home-page .home-card .btn-outline-secondary {
-    border-color: var(--light-grey);
-    color: var(--text-color);
-}
-
-.home-page .home-card .btn-outline-secondary:hover {
-    background-color: var(--light-grey);
-    color: var(--primary-color);
-}
-
-/* Remove the old intro section style */
-/*
-.home-intro-section {
-  background-color: var(--card-bg);
-  border-left: 5px solid var(--accent-color);
-}
-.home-intro-section p {
-  color: var(--text-color);
-  font-size: 1rem; 
-  line-height: 1.6;
-}
-*/ 
+/* Removed old styles */ 
