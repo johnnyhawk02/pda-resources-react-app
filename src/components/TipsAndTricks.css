@@ -4,23 +4,24 @@
 
 /* Removed h2 style - Standardized to h3 and handled globally */
 
-.tips-page section p:last-of-type {
+/* Keep this rule for tighter spacing within sections */
+section p:last-of-type {
     margin-bottom: 0; /* Reduce margin after last paragraph in a section */
 }
 
-.tips-page section p + p a { /* Link following a paragraph */
-    font-size: 0.9em;
-    display: block; /* Put link on its own line */
-    margin-top: 0.5em;
-}
+/* Removed specific link styling - use global link styles */
 
-.tips-page section ul ul {
-    margin-top: 0.3rem;
-    margin-left: 1rem;
+/* Keep italic style for nested examples, remove margin */
+section ul ul {
+    margin-top: 0.3rem; /* Keep small top margin? */
+    /* margin-left: 1rem; Removed */
     font-style: italic;
 }
 
-.tips-page hr {
+/* Keep hr style */
+hr {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid var(--light-grey); /* Use variable for consistency */
 } 

@@ -42,7 +42,7 @@ function Home() {
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">Practical Strategies</h5>
                 <p className="card-text flex-grow-1">Discover effective approaches and techniques for supporting children and individuals with PDA.</p>
-                <Link to="/tips-and-tricks" className="btn btn-outline-primary mt-auto">Get Tips</Link>
+                <Link to="/tips" className="btn btn-outline-primary mt-auto">Get Tips</Link>
               </div>
             </div>
           </div>

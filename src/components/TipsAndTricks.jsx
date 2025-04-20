@@ -3,7 +3,7 @@ import './TipsAndTricks.css'; // For specific styles if needed
 
 function TipsAndTricks() {
   return (
-    <div className="container tips-page">
+    <div className="container">
       
       <h2>Supporting a Child with Pathological Demand Avoidance (PDA): Practical Strategies for Caregivers</h2>
       <p className="lead">
