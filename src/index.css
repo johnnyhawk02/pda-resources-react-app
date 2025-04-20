@@ -177,24 +177,41 @@ button:hover, .btn:hover {
 
 /* --- Navbar specific (basic adjustments) --- */
 .navbar {
-  background-color: #111 !important; /* Keep black background override */
+  background-color: #111 !important; 
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* Removed explicit height/padding overrides */
+  min-height: auto !important; /* Keep min-height override */
 }
 
-.navbar-brand,
-.navbar-brand:hover {
+/* Remove styles added for fixed height experiment */
+/* .navbar > .container { ... } */
+
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover {
   font-weight: 600;
-  color: #fff !important; /* White, no color change on hover */
+  color: #fff !important; 
+  padding-top: 0.35rem; /* Reintroduce small padding */
+  padding-bottom: 0.35rem; /* Reintroduce small padding */
+  /* Removed display:flex, align-items, line-height: normal */
+}
+
+/* Style for the logo image within the brand link */
+.navbar-logo {
+  height: 32px; /* Try smaller height */
+  width: auto; 
+  vertical-align: middle; 
+  /* Removed max-height */
 }
 
 /* Base Nav Link Style (Desktop & Mobile) */
 .navbar .nav-link {
   font-weight: 500;
-  color: #fff !important; /* White Text */
+  color: #fff !important; 
   background-color: transparent;
   border-bottom: 2px solid transparent;
-  padding-bottom: 0.3rem;
-  margin-bottom: -2px;
+  padding-top: 0.35rem; 
+  padding-bottom: 0.35rem; 
+  margin-bottom: -2px; 
   transition: border-color 0.15s ease-in-out;
   outline: none;
 }

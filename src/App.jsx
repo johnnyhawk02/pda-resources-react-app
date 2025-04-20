@@ -12,6 +12,7 @@ import Articles from './components/Articles'
 import PDA from './components/PDA'
 import TipsAndTricks from './components/TipsAndTricks'
 import ScrollToTop from './components/ScrollToTop'
+import logo from './assets/images/PDA logo.png'
 import './App.css'
 
 // Define default fonts
@@ -81,8 +82,10 @@ function App() {
       {/* Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
-          {/* Use Link for SPA navigation */}
-          <Link className="navbar-brand" to="/" onClick={handleNavClick}>PDA Resources</Link>
+          {/* Use Link for SPA navigation - now with logo */}
+          <Link className="navbar-brand" to="/" onClick={handleNavClick}>
+            <img src={logo} alt="PDA Resources Logo" className="navbar-logo" />
+          </Link>
           <button 
             ref={navTogglerRef}
             className="navbar-toggler" 
