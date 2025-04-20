@@ -1,0 +1,26 @@
+/* Styles for the Tips & Tricks page */
+
+/* Removed h1 style - Standardized to h2 */
+
+/* Removed h2 style - Standardized to h3 and handled globally */
+
+.tips-page section p:last-of-type {
+    margin-bottom: 0; /* Reduce margin after last paragraph in a section */
+}
+
+.tips-page section p + p a { /* Link following a paragraph */
+    font-size: 0.9em;
+    display: block; /* Put link on its own line */
+    margin-top: 0.5em;
+}
+
+.tips-page section ul ul {
+    margin-top: 0.3rem;
+    margin-left: 1rem;
+    font-style: italic;
+}
+
+.tips-page hr {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+} 

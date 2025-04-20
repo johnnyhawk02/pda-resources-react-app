@@ -3,9 +3,9 @@ import './PDA.css'; // For specific styles if needed
 
 function PDA() {
   return (
-    <div className="container mt-5 pda-page">
+    <div className="container pda-page">
       
-      <h1>Understanding Pathological Demand Avoidance (PDA) in Children</h1>
+      <h2>Understanding Pathological Demand Avoidance (PDA) in Children</h2>
       <p className="lead">
         Pathological Demand Avoidance (PDA) is a behavioural profile characterised by an extreme avoidance of everyday demands and expectations. 
         Initially described by British developmental psychologist Elizabeth Newson in the 1980s, PDA is often discussed in the context of 
@@ -13,7 +13,7 @@ function PDA() {
       </p>
 
       <section className="mb-4">
-        <h2>Key Characteristics of PDA</h2>
+        <h3>Key Characteristics of PDA</h3>
         <p>Children exhibiting PDA may display:</p>
         <ul>
           <li><strong>Obsessive resistance to everyday demands:</strong> Even routine activities can trigger avoidance behaviours.</li>
@@ -25,7 +25,7 @@ function PDA() {
       </section>
 
       <section className="mb-4">
-        <h2>PDA and Autism Spectrum Disorder</h2>
+        <h3>PDA and Autism Spectrum Disorder</h3>
         <p>
           While PDA shares some characteristics with ASD, it is considered a distinct profile. Research indicates that PDA behaviours can be present in children 
           with ASD, but PDA is not a subtype of autism. A study in the Faroe Islands found that approximately 18% of individuals with ASD exhibited PDA 
@@ -36,7 +36,7 @@ function PDA() {
       </section>
 
       <section className="mb-4">
-        <h2>The Role of Anxiety and Intolerance of Uncertainty</h2>
+        <h3>The Role of Anxiety and Intolerance of Uncertainty</h3>
         <p>
           Anxiety and intolerance of uncertainty (IU) are central to understanding PDA. Children with PDA often experience heightened anxiety when faced 
           with unpredictable situations or demands. This anxiety can lead to behaviours aimed at increasing predictability and control. For example, 
@@ -47,7 +47,7 @@ function PDA() {
       </section>
 
       <section className="mb-4">
-        <h2>Diagnostic Challenges and Controversies</h2>
+        <h3>Diagnostic Challenges and Controversies</h3>
         <p>
           PDA is not currently recognised as a separate diagnostic category in standard classification systems. This lack of formal recognition leads 
           to challenges in diagnosis and support. Some researchers argue that PDA should be viewed as a behavioural profile rather than a distinct disorder, 
@@ -58,7 +58,7 @@ function PDA() {
       </section>
 
       <section className="mb-4">
-        <h2>Implications for Intervention and Support</h2>
+        <h3>Implications for Intervention and Support</h3>
         <p>
           Understanding PDA as a profile associated with anxiety and a need for control has implications for intervention. Traditional behaviour 
           management strategies may be less effective. Instead, approaches that focus on reducing anxiety, increasing predictability, and 
@@ -67,7 +67,7 @@ function PDA() {
       </section>
 
       <section className="mb-4">
-        <h2>Conclusion</h2>
+        <h3>Conclusion</h3>
         <p>
           PDA represents a complex behavioural profile that intersects with anxiety, control, and social interaction challenges. While not formally 
           recognised in diagnostic manuals, acknowledging and understanding PDA can lead to more effective support strategies for affected individuals. 
@@ -76,7 +76,7 @@ function PDA() {
       </section>
 
       <section className="mb-4">
-        <h2>Additional References</h2>
+        <h3>Additional References</h3>
         <ul>
           <li>
             O'Nions, E., Gould, J., Christie, P., Gillberg, C., Viding, E., & Happé, F. (2016). Identifying features of 'pathological demand avoidance' using the Diagnostic Interview for Social and Communication Disorders (DISCO). <em>European Child & Adolescent Psychiatry, 25</em>(4), 407-419. 

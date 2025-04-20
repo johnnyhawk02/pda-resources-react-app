@@ -64,6 +64,7 @@ p, li, label, span, div /* Add other elements as needed */ {
 .app-container > div > h2, /* Targets H2 in Contact, ECHP, DLA, BlueBadge */
 .app-container > section > h2, /* Targets H2 in Home */
 .pda-page > h2, /* Targets H2 in PDA */
+.tips-page > h2, /* Added */
 .articles-page > h2, /* Targets H2 in Articles */
 .resource-section > h2 /* Targets H2 in Resources sections */
 {
@@ -73,6 +74,15 @@ p, li, label, span, div /* Add other elements as needed */ {
     border-bottom: 2px solid var(--accent-color);
     display: inline-block; /* Keep border tight */
     max-width: 100%; /* Prevent overflow */
+}
+
+/* Consistent Sub-Headings (H3 within page content) */
+h3 {
+    color: var(--primary-color); /* Match H2 color */
+    font-family: var(--app-headline-font-family); /* Match H2 font */
+    font-weight: 600; /* Match H2 weight */
+    margin-top: 2rem; /* Add some space above subheadings */
+    margin-bottom: 1rem;
 }
 
 button {

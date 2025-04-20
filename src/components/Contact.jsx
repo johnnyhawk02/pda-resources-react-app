@@ -3,7 +3,7 @@ import './Contact.css'; // Import the CSS file
 
 function Contact() {
   return (
-    <div className="container mt-5">
+    <div className="container contact-page">
       <h2>Contact Us</h2>
       <p>
         This is a placeholder for contact information or a contact form. 

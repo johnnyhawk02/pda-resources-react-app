@@ -10,10 +10,11 @@ import Dla from './components/Dla'
 import BlueBadge from './components/BlueBadge'
 import Articles from './components/Articles'
 import PDA from './components/PDA'
+import TipsAndTricks from './components/TipsAndTricks'
 import './App.css'
 
 // Define default fonts
-const defaultHeadlineFont = '"Quicksand", sans-serif'; // Set default headline to Quicksand
+const defaultHeadlineFont = '"Roboto", sans-serif'; // Set default headline to Roboto
 const defaultBodyFont = '"Open Sans", sans-serif'; // Set default body to Open Sans
 
 function App() {
@@ -133,6 +134,10 @@ function App() {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/articles" onClick={handleNavClick}>Articles</NavLink>
               </li>
+              {/* Tips & Strategies Link */}
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/tips" onClick={handleNavClick}>Tips & Strategies</NavLink>
+              </li>
               {/* Key Support Dropdown */}
               <li className="nav-item dropdown">
                 <a 
@@ -180,6 +185,7 @@ function App() {
           <Route path="/dla" element={<Dla />} />
           <Route path="/blue-badge" element={<BlueBadge />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/tips" element={<TipsAndTricks />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add a fallback route maybe? */}
           {/* <Route path="*" element={<NotFound />} /> */}
