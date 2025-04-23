@@ -12,6 +12,8 @@ import Articles from './components/Articles'
 import PDA from './components/PDA'
 import TipsAndTricks from './components/TipsAndTricks'
 import ScrollToTop from './components/ScrollToTop'
+import MetaTags from './components/MetaTags'
+import SchemaMarkup from './components/SchemaMarkup'
 import logoSvg from './assets/images/brainstorming-svgrepo-com.svg'
 import './App.css'
 
@@ -77,6 +79,8 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <MetaTags />
+      <SchemaMarkup />
       {/* Navigation Bar */}
       <nav className="main-nav">
         <div className="nav-container">

@@ -1,0 +1,1 @@
+Please create logo files: logo.png (512x512px), favicon.ico, apple-touch-icon.png (180x180px), og-image.png (1200x630px)
